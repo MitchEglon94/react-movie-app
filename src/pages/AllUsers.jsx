@@ -14,10 +14,14 @@ function AllUsers() {
   const users = useSelector((store) => store.user.users);
   const userInState = useSelector((state) => state.user.user);
 
+  // FUNCTION TO UPDATE THE CURRENT USER IN THE DATABASE, BY PASSING ON THE USERS INFO THAT IS CURRENTLY IN STATE
+
   useEffect(() => {
     dispatch(updateUserInfo(userInState));
     dispatch(getAllUsers());
   }, [userInState]);
+
+  // OUTPUT THE CURRENT LIKED MOVIES OF ALL USERS IN THE DATABASE (isAdmin = false)
 
   return (
     <div>

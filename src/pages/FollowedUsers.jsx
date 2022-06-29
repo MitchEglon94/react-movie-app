@@ -18,6 +18,8 @@ function FollowedUsers() {
   const currentUserLiked = useSelector((store) => store.user.user.liked);
   let mutualArr = [];
 
+  // CLICK FUNCTION TO FIND REQUESTED USER, AND CONFIRM USER EXISTS BEFORE SENDING REQ
+
   const clickHandler = () => {
     const found = allUsers.find(
       (e) => e.username === username && e.isAdmin === false
@@ -27,8 +29,7 @@ function FollowedUsers() {
     }
   };
 
-  console.log("current user liked", currentUserLiked);
-  console.log("liked user", likedUser[0].liked);
+  // BUILD MUTUALLY LIKED MOVIES ARRAY BETWEEN SEARCHED USER AND LOGGED IN USER; DECIFER WHICH ARRAY IS LONGER AND THEN FILTER FOR COMMON MOVIES
 
   if (currentUserLiked > likedUser[0].liked) {
     currentUserLiked.forEach((e) => {
@@ -36,15 +37,15 @@ function FollowedUsers() {
         if (e.id === el.id) mutualArr.push(el);
       });
     });
-    console.log("mutual arr", mutualArr);
   } else {
     likedUser[0].liked.forEach((e) => {
       currentUserLiked.forEach((el) => {
         if (e.id === el.id) mutualArr.push(el);
       });
     });
-    console.log("mutual arr", mutualArr);
   }
+
+  // OUTPUT TO SHOW MUTUALLY LIKED MOVIES OF THE SEARCHED USER
 
   return (
     <>

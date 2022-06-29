@@ -16,17 +16,21 @@ function FeaturedMovies() {
   const user = useSelector((store) => store.user);
   const movies = useSelector((store) => store.movie.list);
   console.log(movies);
+
+  // CLICK FUNCTION TO ADD A MOVIE TO THE CURRENT USERS LIKED MOVIES
   const clickHandler = (info) => {
     if (user.user.likedMovieId.indexOf(info.id) < 0) {
       dispatch(updateLiked(info));
     }
   };
 
+  // OUTPUT OF FEATURED MOVIES; SHOWING INFO FROM THE API
+
   return (
     <>
       <h2>Featured Movies This Week</h2>
       <div className="featured-container"></div>
-      <h2>{user.firstName}s Liked Movies</h2>
+      {/* <h2>{user.firstName}s Liked Movies</h2> */}
       <div className="featured-container"></div>
       <Grid container spacing={3} direction="row" justifyContent="space-evenly">
         {movies.map((movie) => (

@@ -15,9 +15,11 @@ function LikedMovies() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user.user);
   const movies = user.liked;
+  // CLICK FUNCTION TO CONFIRM THAT A MOVIE HAS BEEN WATCHED AND REMOVE IT FROM THE LIKED ARRAY
   const clickHandler = (info) => {
     dispatch(removeLiked(info));
   };
+  //OUTPUT OF DATA FROM THE USERS LIKED MOVIES
   return (
     <>
       <h2>{user.firstName}s Liked Movies</h2>
