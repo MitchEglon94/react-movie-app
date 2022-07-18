@@ -5,10 +5,16 @@ import { ThemeProvider } from "@mui/system";
 import { store } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Redirect,
+} from "react-router-dom";
 import theme from "./components/theme";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 //pages
 import App from "./App";
@@ -28,10 +34,12 @@ root.render(
         <PersistGate loading={null} persistor={persistor}>
           <Routes>
             <Route path="/" element={<App />}>
-              <Route index element={<Dashboard />} />
-              <Route path="login" element={<Login />} />
-              <Route path="allusers" element={<AllUsers />} />
-              <Route path="followedusers" element={<FollowedUsers />} />
+              <Route index element={<Login />} />
+              <Route element={<ProtectedRoute />}>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="allusers" element={<AllUsers />} />
+                <Route path="followedusers" element={<FollowedUsers />} />
+              </Route>
             </Route>
           </Routes>
         </PersistGate>

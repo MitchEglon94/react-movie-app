@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneUser } from "../features/users/userSlice";
 import Grid from "@mui/material/Grid";
@@ -11,12 +11,14 @@ import CardActions from "@mui/material/CardActions";
 
 function FollowedUsers() {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState("");
+  // const user = useSelector((store) => store.user.users);
   // const [str, setStr] = useState("");
   const likedUser = useSelector((store) => store.user.likedUser);
+  console.log(likedUser);
   const allUsers = useSelector((store) => store.user.users);
   const currentUserLiked = useSelector((store) => store.user.user.liked);
   let mutualArr = [];
+  const [username, setUsername] = useState("");
 
   // CLICK FUNCTION TO FIND REQUESTED USER, AND CONFIRM USER EXISTS BEFORE SENDING REQ
 

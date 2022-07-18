@@ -29,13 +29,13 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">
+            <Link to="/dashboard">
               <h1 className="app-title">WHATS ON?</h1>
             </Link>
           </Typography>
 
           {!user.user && (
-            <Button color="secondary" component={Link} to="/login">
+            <Button color="secondary" component={Link} to="/">
               Login
             </Button>
           )}
@@ -44,7 +44,7 @@ export default function ButtonAppBar() {
             <Button
               color="secondary"
               component={Link}
-              to="/login"
+              to="/"
               onClick={() => dispatch(logout())}
             >
               Logout

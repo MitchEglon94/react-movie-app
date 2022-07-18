@@ -4,7 +4,7 @@ import { fetchUser, updateUser, getUsers, getOneUserCall } from "./userAPI";
 const initialState = {
   user: null,
   users: [],
-  likedUser: null,
+  likedUser: [],
   matchingMovies: [],
   status: "idle",
   error: null,
@@ -73,6 +73,7 @@ export const userSlice = createSlice({
         state.status = "idle";
         state.user = action.payload.user;
         state.error = null;
+        state.likedUser = [action.payload.user];
         state.token = action.payload.accessToken;
       })
       .addCase(login.rejected, (state, action) => {
@@ -85,6 +86,7 @@ export const userSlice = createSlice({
       .addCase(getAllUsers.fulfilled, (state, action) => {
         state.status = "idle";
         state.error = null;
+
         state.users = action.payload.filter((e) => !e.isAdmin);
       })
       .addCase(getAllUsers.rejected, (state, action) => {
