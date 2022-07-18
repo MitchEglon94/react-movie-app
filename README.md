@@ -1,46 +1,17 @@
-# Getting Started with Create React App and Redux
+# Movie choice app - react project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+I have built an app which will remove the pain of choosing a movie together; simply login, look through the movies and like the ones that catch your interest.
 
-## Available Scripts
+You can then go to the 'Followed Users' section and search for your desired user - this will then show up all of the movies that you and you search request have mutually liked.
 
-In the project directory, you can run:
+Once you have watched a movie, on the main dashboard you will find your 'liked movies' section. You can mark movies here as watched and then this will remove them from your liked movies. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I have a small mock server which can be found in my repo's and in there is some mock login data, user json server auth. 
+It contains two user accounts currently and one admin account.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Up to now, the admin account is redundant but my following progress will be as follows:
+- Add protected routes
+- Add admin functionality to update/remove users
+- A sign up form to add new users to the database
+- Much better styling hopefully XD 
